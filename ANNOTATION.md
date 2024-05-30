@@ -1,4 +1,5 @@
-## To test the app I used POSTMAN
+## Application testing
+I used POSTMAN to test the application.
 ![Postman](assets/screenshot1.jpg)
 
 Or use CURL:
@@ -81,16 +82,16 @@ curl --location 'http://localhost:3000/upload' \
 ```
 
 ### Description
-pdfData - all fields from PDF file
-companyData - all fields from database.csv file
-differences - Differences between pdf file and database.csv
+- pdfData - all fields from PDF file
+- companyData - all fields from database.csv file
+- differences - Differences between pdf file and database.csv
 
 #### Difference Logic Descriptions
 - Differences are shown if the field in the PDF differs from the CSV file
 - If the field is in the CSV but not in the PDF
 - If the field is in the PDF but not in the CSV
 
-All this logic you could test to run:
+You can test all this logic using the command:
 ```
 npm run test
 ```
