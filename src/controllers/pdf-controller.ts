@@ -4,13 +4,21 @@ import { PdfService } from '../services/pdf-service';
 import { DatabaseService } from '../services/database-service';
 import { compareData } from '../services/compare-data-service';
 
-const apiKey = process.env.API_KEY || 'TEST_KEY';
-const pdfService = new PdfService(apiKey);
-const databaseService = new DatabaseService(apiKey);
+const pdfServiceApiKey = process.env.PDF_SERVICE_KEY  || 'TEST_KEY';
+const databaseServiceApiKey = process.env.DATABASE_SERVICE_KEY  || 'TEST_KEY';
+
+const pdfService = new PdfService(pdfServiceApiKey);
+const databaseService = new DatabaseService(databaseServiceApiKey);
 
 export const uploadPdf = async (req: Request, res: Response) => {
     if (!req.file) {
         return res.status(400).send("No file uploaded.");
+    }
+
+    const apiKey = req.headers['x-api-key'];
+
+    if (!apiKey || apiKey !== pdfServiceApiKey) {
+        return res.status(401).send("Unauthorized.");
     }
 
     try {

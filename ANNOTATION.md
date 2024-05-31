@@ -1,10 +1,12 @@
 ## Application testing
 I used POSTMAN to test the application.
 ![Postman](docs/screenshot1.jpg)
+![Postman](docs/screenshot2.jpg)
 
 Or use CURL:
 ```
 curl --location 'http://localhost:3000/upload' \
+--header 'x-api-key: TEST_KEY' \
 --form 'file=@"/C:/Users/user/local/path/to/file/financellc.pdf"'
 ```
 
