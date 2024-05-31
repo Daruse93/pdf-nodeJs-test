@@ -11,8 +11,14 @@ const databasePath = path.resolve(__dirname, '../../data/database.csv');
 
 export class DatabaseService {
     private records: CompanyData[] = [];
+    private key: string;
 
-    constructor() {
+    constructor(key: string) {
+        if (key !== "TEST_KEY") {
+            throw new Error("Invalid key");
+        }
+
+        this.key = key;
         this.loadDatabase();
     }
 

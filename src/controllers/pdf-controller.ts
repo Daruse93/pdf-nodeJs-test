@@ -4,8 +4,9 @@ import { PdfService } from '../services/pdf-service';
 import { DatabaseService } from '../services/database-service';
 import { compareData } from '../services/compare-data-service';
 
-const pdfService = new PdfService("TEST_KEY");
-const databaseService = new DatabaseService();
+const apiKey = process.env.API_KEY || 'TEST_KEY';
+const pdfService = new PdfService(apiKey);
+const databaseService = new DatabaseService(apiKey);
 
 export const uploadPdf = async (req: Request, res: Response) => {
     if (!req.file) {

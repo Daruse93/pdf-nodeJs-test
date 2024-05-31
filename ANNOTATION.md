@@ -1,6 +1,6 @@
 ## Application testing
 I used POSTMAN to test the application.
-![Postman](assets/screenshot1.jpg)
+![Postman](docs/screenshot1.jpg)
 
 Or use CURL:
 ```

@@ -45,7 +45,7 @@ const companyData: CompanyData = {
   'Location': 'San Francisco'
 };
 
-describe('Test suite', () => {
+describe('CompareDateService', () => {
   it('should return empty differences if pdfData and companyData are identical', () => {
     const result = compareData(pdfData, companyData);
     expect(result.differences).toEqual({});
